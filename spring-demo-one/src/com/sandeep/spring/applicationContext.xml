@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	
+	<!-- Load properties file with below command -->
+	<context:property-placeholder location="classpath:sports.properties"/>
+	
+    <!-- Define your beans here -->
+    
+    <!-- define the dependency -->
+    <bean id="myFortune"
+    		class="com.sandeep.spring.HappyFortuneService">
+    </bean>
+    
+    <bean id="myCoach"
+    		class="com.sandeep.spring.BaseballCoach">
+    		
+    		<!-- setup constructor injection -->
+    		<constructor-arg ref="myFortune"/>
+    </bean>
+    	
+ 	<bean id="myCoach1"
+ 		class="com.sandeep.spring.TrackCoach">	
+ 		<!-- setup constructor injection -->
+    		<constructor-arg ref="myFortune"/> 		
+ 	</bean>
+
+	<bean id="myCricketCoach"
+ 		class="com.sandeep.spring.CricketCoach">	
+ 		<!-- setup constructor injection -->
+    		<property name="fortuneService" ref="myFortune"/>		
+    		
+    		<!-- ${} fields are added to load data from properties file -->
+    		<property name="emailAddress" value="${User.email}"/>
+    		
+    		<property name="team" value="${User.team}"/>
+ 	</bean>
+
+</beans>
+
+
+
+
+
