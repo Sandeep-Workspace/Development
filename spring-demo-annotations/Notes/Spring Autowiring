@@ -1,0 +1,41 @@
+Spring Auto wiring
+For dependency injection spring can use Auto wiring.
+
+Spring will look for a class that matches property.
+matches by type : class or interface
+
+once spring finds match spring will inject automatically.
+
+Autowiring injection types
+1) Constructor Injection
+2) Setter Injection
+3) Field Injection
+
+Constructor Injection: Inject dependencies by constructor.Inside bean, We use @Autowired annotation on constructor for that.
+Setter Injection: Inject dependencies by calling setter methods on your class.
+
+Method Injection: Inject dependencies by calling any method of your class. Simply give @Autowired
+
+Field Injection:Inject dependencies by setting field values on your class directly.(Even private fields)
+It happens behind the scenes by java technology Reflection.
+
+Development process: Configure dependency with @Autowired Annotation
+Applied directly to the field.
+No need for setter methods.
+
+Which injection should we use?
+Choose one and stay consistent in your project
+
+Qualifiers for dependency injection
+@Qualifier("Bean Id") we use these qualifier to specify which implementation to use for dependency injection
+
+It can be applied on Constructor, Setter and Field.
+
+For Init method configuration :use @PostConstruct on any method. 
+That method code will execute after constructor and after injection of dependencies.
+	
+For Destroy method configuration :use @PreDestroy on any method.
+Code will execute before bean is destroyed.
+
+ 
+
