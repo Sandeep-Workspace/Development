@@ -1,0 +1,22 @@
+Spring MVC Configuration Process Part 1
+
+Add configuration to file: WEB-INF/web.xml
+Configure Spring MVC Dispatcher Servlet
+Setup URL mappings to Spring MVC Dispatcher Servlet
+
+Spring MVC Configuration Process Part 2
+
+Add configuration to spring configuration file:WEB-INF/spring-mvc-demo-servlet.xml
+Add support for spring component scanning
+Add support for conversion, formatting and validation.
+Configure Spring MVC View Resolver
+
+Question:
+
+How to configure the Spring Dispatcher Servlet using all Java Code (no xml)?
+
+Answer:
+
+The Spring documentation covers this process:
+
+https://docs.spring.io/spring/docs/current/spring-framework-reference

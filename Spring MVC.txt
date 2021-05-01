@@ -1,0 +1,52 @@
+What is Spring MVC?
+Framework for building web applications in Java.
+Based on Model View Controller design pattern.
+Leverage features of the Core Spring framework(IOC,DI)
+
+www.luv2code.com/spring-mvc-docs
+
+Spring MVC front Controller
+==============================
+Front controller known as DispatcherServlet.
+Part of the spring framework.
+Already developed by Spring Development team.
+
+Controller
+==============================
+Code created by Developer.
+Contains your business logic.
+Handle the request
+Store/retrieve data (db,web service)
+Place data in model
+
+send to appropriate view template.
+
+Model
+=============================
+It contains your data
+Store retrieve data via backend systems
+database, web service etc
+Use a spring bean if you like
+
+Place your data in the model
+Data can be any Java Object/Collection
+
+View Template
+==============================
+Spring MVC is flexible
+supports many view templates
+
+Most common JSP+JSTL
+JSP: Java Server Pages
+JSTL:JSP Standard Tag Library
+Developer creates a page
+Displays data
+
+Other view templates supported : 
+Thymeleaf,Groovy
+Velocity, Freemaker etc
+
+www.luv2code.com/spring-mvc-views
+
+Spring MVC Configuration
+=========================
