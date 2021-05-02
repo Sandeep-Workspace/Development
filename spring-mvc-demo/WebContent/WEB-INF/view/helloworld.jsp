@@ -2,17 +2,19 @@
 <html>
 	<head>
 		<title>Hello World</title>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/test.css">
+	<!--	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/test.css">-->
 	</head>
 	<body>
-		<img src="${pageContext.request.contextPath}/resources/images/image1.jpg" />
+	<div>
+		<!-- <img src="${pageContext.request.contextPath}/resources/images/image1.jpg" />-->
 	
-		Hello World of Spring
+		<h1>Hello World of Spring</h1>
 		<br/>
 		<br/>
-		Student Name: ${param.studentName}
+		<h2>Student Name: ${param.studentName}</h2>
 		<br/>
 		<br/>
-		Model Attribute: ${message}
+		<h3>Model Attribute: ${message}</h3>
+		</div>
 	</body>
 </html>
