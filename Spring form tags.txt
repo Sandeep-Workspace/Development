@@ -1,0 +1,81 @@
+Spring MVC form tags
+=================================================
+These are building blocks for a web page.
+These are configurable and reusable for a web page.
+
+Data binding
+==================================================
+Spring MVC form tags can make use of data binding.
+Automatically setting / retrieving data from a Java Object/bean.
+
+Spring MVC form tags will generate HTML for you.
+
+for more detail: www.luv2codecom/spring-mvc-form-tags
+
+Web page structure
+==================================================
+JSP page with special MVC form tags
+<html>
+	regular html
+	Spring MVC form tags
+	more html
+</html>
+
+How to reference spring MVC form tags in JSP page
+==================================================
+specify the spring namespace at beginning of JSP file.
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+Showing Form
+=================
+In your spring Controller
+Before you show the form,you must add a model attribute.
+This is a bean that will hold form data for data binding.
+
+@RequestMapping("/showForm")
+public String showForm(Model theModel){
+	theModel.attAttribute("student",new Student());
+	
+	return "student-form";
+}
+
+Model is used to pass data between controller and view.
+
+Setting up HTML form data binding
+===============================================================
+<form:form action="processForm" modelAttribute="student">
+	First Name:<form:input path="firstName"/>
+	<br><br>
+	Last Namne:<form:input path="lastName"/>
+	<br><br>
+	<input type="submit" value="submit">
+</form:form>
+================================================================
+
+path="firstName" will bind this field with bean variable. When form is loaded Spring MVC will call:student.getFirstName();
+
+If field variable is empty field will be empty otherwise it will show data.
+
+same for path="lastName"
+
+Handling form submission in the controller
+================================================
+@RequestMaping("/processForm")
+public String processForm(@ModelAttribute("student") Student theStudent){
+	//log input data
+	System.out.println("theStudent: "+theStudent.getLastName());
+	return "student-confirmation";
+} 
+================================================
+
+Behind the scenes the object is populated with form data.
+
+Confirmation Page:
+======================================================================
+<html>
+	<body>
+	The Student is confirmed:${student.firstName} ${student.lastName}
+	</body>
+</html>
+=======================================================================
+

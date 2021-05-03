@@ -1,0 +1,37 @@
+Java's Standard Bean Validation API
+===========================================
+Java has standard bean validation API.
+http://www.beanvalidation.org
+
+Spring and Validation
+======================
+Spring Version 4 and higher supports Bean Validation API
+Preferred method for validation when building spring apps.
+Simply add Validation JAR's to our project.
+
+Bean Validation Features
+===========================================
+1) required
+2) validate length
+3) validate numbers
+4) validate with regular expressions
+5) custom validation
+
+Validation Annotation
+=============================
+Annotation			Description
+@NotNull			Checks that the annotated value is not null.
+@Min				Must be a number >=value
+@Max				Must be a number <=value
+@Size				Size must match the given size
+@Pattern			Must match a regular expression pattern
+@Future / @Past		Date must be in future or past of given date
+others...
+
+Use Hibernate for Validation which is compliant with JSR 303/309
+http://wwww.hibernate.org/validator
+
+Separate project from hibernate for validation and is fully compliant with Java's bean validation API.
+
+we need Javax validation jar for validation, you need to download it separately.
+Also @NotNull does not work so @NotEmpty should be used.

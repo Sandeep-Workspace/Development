@@ -1,0 +1,17 @@
+Model: Spring Model is a container for your application data.
+In your controller you can put anything in model, strings,objects,info from database etc
+your view page can access data from Model.
+
+HttpServletRequest holds html form data.
+(HttpServletRequest request, Model model)
+
+To get parameter from request object: request.getParameter();
+To add parameter to Model object: model.addAttribute("Field name",value);
+
+@RequestParam annotation
+(@RequestParam("studentName") String theName,Model model)
+
+Spring will read param from request: studentName and Bind it to the variable theName
+
+If multiple controllers are there and if they have same url for methods you want to run particular controller method then use @RequestMapping on controller level 
+as well. It will reduce ambiguity  for different controller having same RequestMapping for differentmethod.
