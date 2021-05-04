@@ -35,3 +35,64 @@ Separate project from hibernate for validation and is fully compliant with Java'
 
 we need Javax validation jar for validation, you need to download it separately.
 Also @NotNull does not work so @NotEmpty should be used.
+
+@InitBinder
+===========================
+@InitBinder annotation works as preprocessor.
+It will pre-process each web request to our controller.
+Method annotated with @InitBinder is executed.
+
+Register Custom editor in controller
+StringTrimmerEditor: removes whitespace -leading and trailing. It is defined in Spring API.
+
+StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true); here true means trim to null.
+
+registerCustomEditor(register as custome editor) it will pre process every string form data ,removes leading and trailing whitespace. 
+If string has only whitespace trim it to null.
+
+Regular Expressions:
+======================
+A sequence of characters that define a search pattern.
+This pattern is used to find or match strings.
+
+Regular expressions is like its own language.
+
+regex tutorial:
+https://docs.oracle.com/javase/tutorial/essential/regex/
+
+To understand this:
+validate a postal code:
+Add a new input field on our form for: Postal Code
+User can only enter 5 chars/digit
+Apply regular expression
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

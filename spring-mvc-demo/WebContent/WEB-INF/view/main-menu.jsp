@@ -9,8 +9,8 @@
 		<!-- <img src="${pageContext.request.contextPath}/resources/images/image1.jpg" />-->
 
 		<h2>Spring MVC Demo-Home Page</h2>
-		<a href="showForm">Hello World Form</a> <br /> <br /> 
-		<a href="student/showForm">Student Form</a> <br /> 
+		<a href="showForm">Hello World Form</a> <br> <br> 
+		<a href="student/showForm">Student Form</a> <br> <br>
 		<a href="customer/showForm">Customer Form</a>
 	</div>
 </body>
