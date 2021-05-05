@@ -1,0 +1,19 @@
+Custom Validation
+====================
+Create custom java annotation from scratch
+
+For Custom validation we will create a custom java annotation
+
+Development Process Drill Down
+
+1. Create custom validation rule
+
+a) Create @CourseCode annotation
+b) Create CourseCodeConstraintValidator
+
+Step 1.a Create @CourseCode annotation
+Usage Example
+@CourseCode(value="LUV", message="must strat with LUV") 
+private String courseCode;
+
+CourseCodeConstraintValidator.class helper class that contains business rules/validation logic
