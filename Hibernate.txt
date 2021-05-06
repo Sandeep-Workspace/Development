@@ -1,0 +1,68 @@
+Hibernate
+==========
+A framework for persisting/saving objects in database.
+
+Benefits
+Hibernate handles all low level sql
+Minimize amount of JDBC code you have to develop
+Hibernate provides Object to Relational mapping.(ORM)
+
+
+ORM
+======
+Developer defines mapping between java classes and database table.
+(Java class same field in db table)
+
+Saving object with hibernate
+create object
+int id = (Integer)session.save(theStudent); //session is hibernate object 
+Hibernate returns primary key on saving object
+
+Retrieving object from using primary key
+Object object = session.get(Student.class,primarykey);
+
+Below we are using Hibernate Query Language
+=============================================
+Quering for Java Objects
+Query query =session.createQuery("from ClassName");
+List<ClassName> listObject =query.list();
+
+Above code will give all data from db table
+
+Hibernate uses JDBC for all database communication.It is another layer of abstraction on top of JDBC.
+
+Hibernate Annotation
+========================
+Entity Class
+Java class that is mapped to database table.
+
+Two options for mapping 
+XML config file
+Java annotation
+
+@Id for primary key annotation
+
+@Column(name="first_name")
+private String firstName;
+
+
+SessionFactory : Reads hibernate config file, create session objects, Only create once in your app then reuse SessionFactory.
+
+Session is wrapper around JDBC connection.
+Main object is to save/retrieve objects.
+short lived objectretrieved from seesion factory
+
+
+save a object 
+create session factory
+get session from session factory object
+create object of class you want to store
+begin transaction
+session.save(object);
+session.getTransaction.commit();
+
+@GeneratedValue(strategy=GenerationType.IDENTITY) to specify these field should be used for generation
+
+
+
+

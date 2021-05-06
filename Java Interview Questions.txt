@@ -140,3 +140,8 @@ public static SortedSet synchronizedSortedSet(SortedSet s){}
 public static Map synchronizedMap(Map m){}
 public static SortedMap synchronizedSortedMap(SortedMap m){}
 
+If you need fast access to elements using index, ArrayList should be choice.
+If you need fast access to elements using a key, use HashMap.
+If you need fast add and removal of elements, use LinkedList (but it has a very poor seeking performance).
+LinkedList is faster in one case: when inserting/deleting the element at the beginning of the list
+
