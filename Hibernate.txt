@@ -1,8 +1,11 @@
 Hibernate
 ==========
-A framework for persisting/saving objects in database.
+A framework for persisting/saving Java objects in database.
+
+Java App -> Hibernate -> Database
 
 Benefits
+---------------------------------------
 Hibernate handles all low level sql
 Minimize amount of JDBC code you have to develop
 Hibernate provides Object to Relational mapping.(ORM)

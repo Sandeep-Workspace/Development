@@ -1,0 +1,27 @@
+REST(Representational State Transfer)
+======================================
+In this we transfer state of object not object.Represent state of Object.By state means data. That is why it is called Representational State Transfer.
+
+Server sends data in two forms XML and JSON. We have to parse it.
+
+we call data received from server or asked from server a resource.
+
+Operations		HTTP Methods to perform operation
+Create 			= POST
+Read   			= GET
+Update 			= PUT
+Delete 			= DELETE
+
+How to implement rest
+=========================
+1) Jersey
+2) Spring Implementation of Jersey
+
+@GET
+@POST
+@Path("alien")
+@Path("alien/{id}")
+@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON}) :data type of api send data to client
+@Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON}) :data type of api receive data from client
+
+@PUT
