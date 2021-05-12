@@ -24,4 +24,4 @@ How to implement rest
 @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON}) :data type of api send data to client
 @Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON}) :data type of api receive data from client
 
-@PUT
+@PUT 

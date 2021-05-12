@@ -67,5 +67,96 @@ session.getTransaction.commit();
 @GeneratedValue(strategy=GenerationType.IDENTITY) to specify these field should be used for generation
 
 
+Hibernate Query Language
+===========================
+Query Language for retrieving objects.
+Similar in nature to SQL.
+where,Like,order by,join,in etc..
+
+Retrieving All students
+========================
+List<Student> theStudents = session.createQuery("from Student").getResultList();
+
+In above query we have to Java Class name(Student) instead of table name.
+
+Retrieve Student whose last name is Singh
+============================================
+List<Student> theStudents = session.createQuery("from Student s where s.lastName='Singh'").getResultList();
+
+In above query use Java property name (not column name)
+
+Retrieving Student using OR predicate
+======================================
+List<Student> theStudents = session.createQuery("from Student s where s.lastName='Singh'"+" OR s.firstName='Sachin').getResultList();
+
+In above query use Java property name (not column name)
+
+Retrieving Student using Like Predicate
+========================================
+List<Student> theStudents = session.createQuery("from Student s where"+"s.email LIKE '%luv2code.com'").getResultList();
+
+In above query use Java property name (not column name)
+
+
+CasCade
+========
+We can cascade operations. Apply the same operation to related entities.
+If we delete Instructr, we should also delete their instructor_detail. This is know as "CASCADE DELETE".
+
+Fetch Type:Eager vs Lazy Loading
+==================================
+When we fetch retrieve data should we retrieve everything?
+Eager will retrieve everything.
+Lazy will retrieve on request.
+
+Foreign Key: Main purpose is to preserve relationship between tables.
+Referential Integrity:Prevents operations that would destroy relationship.
+
+Als ensure only valid data is inserted into the foreign key column. It can only contain valid reference to primary key in other table.
+
+@JoinColumn(name="column name of foreign key specified in this table")
+
+//set up mapping to instructordetail entity
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="instructor_detail_id")
+	private InstructorDetail instructorDetail;
+	
+//	@OneToOne(mappedBy = instructorDetail)
+	private Instructor instructor;
+	
+mappedBy refers to InstructorDetail property in Instructor class.
+
+mappedBy tells Hibernate:
+Look at the instructorDetail property in the Instructor class.
+Use information from the Instructor class @JoinColumn.
+To help find associated instructor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
