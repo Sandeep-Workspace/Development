@@ -1,0 +1,46 @@
+Collection
+=============
+The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
+
+Java Collections can achieve all the operations that you perform on a data such as searching, sorting, insertion, manipulation, and deletion.
+
+A Collection represents a single unit of objects, i.e., a group.
+
+Iterator interface
+==================s
+Iterator interface provides the facility of iterating the elements in a forward direction only.
+Methods of Iterator interface
+==============================
+public boolean hasNext()
+public Object next()	
+public void remove()
+
+Iterable Interface
+The Iterable interface is the root interface for all the collection classes. The Collection interface extends the Iterable interface and therefore all the subclasses of Collection interface also implement the Iterable interface.
+
+It contains only one abstract method. i.e.,
+
+Iterator<T> iterator()  
+It returns the iterator over the elements of type T.
+
+Collection Interface
+The Collection interface is the interface which is implemented by all the classes in the collection framework.
+
+List Interface
+List interface is the child interface of Collection interface. 
+It inhibits a list type data structure in which we can store the ordered collection of objects. It can have duplicate values.
+
+ArrayList
+The ArrayList class implements the List interface. It uses a dynamic array to store the duplicate element of different data types. 
+The ArrayList class maintains the insertion order and is non-synchronized. The elements stored in the ArrayList class can be randomly accessed.
+
+Exception from Iterator 
+========================
+The java.util.concurrentmodificationexception is an error in Java.
+The error occurs when the iterator is traversing a list, and a command is used to change an element’s value during that traversal.
+
+LinkedList
+============
+LinkedList implements the Collection interface. It uses a doubly linked list internally to store the elements. It can store the duplicate elements. 
+It maintains the insertion order and is not synchronized. In LinkedList, the manipulation is fast because no shifting is required.
+

@@ -1,0 +1,86 @@
+Linked List is a linear data structure. Unlike arrays, linked list elements are not stored at a contiguous location; the elements are linked using pointers.
+
+Why Linked List?
+1)The size of the arrays is fixed: So we must know the upper limit on the number of elements in advance. Also, generally, the allocated memory is equal to 
+the upper limit irrespective of the usage.
+2) Inserting a new element in an array of elements is expensive because the room has to be created for the new elements and to create room existing elements 
+have to be shifted.
+If we want to insert a new ID 1005, then to maintain the sorted order, we have to move all the elements after 1000.
+3)Deletion is also expensive with arrays until unless some special techniques are used.
+
+Drawbacks:
+1) Random access is not allowed. We have to access elements sequentially starting from the first node. So we cannot do binary search with linked lists 
+efficiently with its default implementation. Read about it here.
+2) Extra memory space for a pointer is required with each element of the list.
+3) Not cache friendly. Since array elements are contiguous locations, there is locality of reference which is not there in case of linked lists.
+
+Representation:
+A linked list is represented by a pointer to the first node of the linked list. The first node is called the head. If the linked list is empty, 
+then the value of the head is NULL.Each node in a list consists of at least two parts:
+1) data
+2) Pointer (Or Reference) to the next node
+In C, we can represent a node using structures. 
+===========================================================================================
+HashMap in Java works on hashing principles.
+
+It is a data structure which allows us to store object and retrieve it in constant time O(1) provided we know the key.
+In hashing, hash functions are used to link key and value in HashMap. Objects are stored by calling put(key, value) method of HashMap and 
+retrieved by calling get(key) method.
+When we call put method, the hashcode() method of the key object is called so that the hash function of the map can find a bucket location
+to store value object, which is actually an index of the internal array, known as the table.
+
+HashMap internally stores mapping in the form of Map.Entry object which contains both key and value object.
+When you want to retrieve the object, you call the get() method and again pass the key object. This time again key objects generate the same hash code 
+(it's mandatory for it to do so to retrieve the object and that's why HashMap keys are immutable e.g. String) and we end up at same bucket location. 
+If there is only one object then it is returned and that's your value object which you have stored earlier.
+
+Since the internal array of HashMap is of fixed size, and if you keep storing objects, at some point in time hash function will return the same bucket location 
+for two different keys, this is called collision in HashMap. In this case, a linked list is formed at that bucket location and a new entry is stored as the next
+node.
+
+If we try to retrieve an object from this linked list, we need an extra check to search the correct value, this is done by equals() method. 
+Since each node contains an entry, HashMap keeps comparing entry's key object with the passed key using equals() and when it returns true, 
+Map returns the corresponding value.
+
+
+Q.Have you used HashMap before or  What is HashMap? Why do you use it 
+Ans.HashMap accept null while Hashtable doesn't, HashMap is not synchronized, HashMap is fast and so on along with basics like its stores key and value pairs etc.
+
+Q. Do you Know how HashMap works in Java or How does get () method of HashMap works in Java
+Ans. HashMap works on the principle of hashing, we have put(key, value) and get(key) method for storing and retrieving Objects from HashMap. 
+When we pass Key and Value object  to put() method on Java HashMap, HashMap implementation calls hashCode method on Key object and applies 
+returned hashcode into its own hashing function to find a bucket location for storing Entry object, important point to mention is that HashMap 
+in Java stores both key and value object as Map.Entry in a bucket which is essential to understand the retrieving logic.
+
+Q.What will happen if two different objects have the same hashcode?
+Ans.you might want to remind them about equals() and hashCode() contract  that two unequal objects in Java can have same hashcode.
+Since hashcode is same, bucket location would be same and collision will occur in HashMap Since HashMap uses LinkedList to store object, 
+this entry (object of Map.Entry comprise key and value )  will be stored in LinkedList.
+There are many collision resolution methods available  like linear probing and chaining, this is simplest and HashMap in Java does follow this.
+HashMap  stores both Key and Value in LinkedList node.After finding bucket location, we will call keys.equals() method to identify a correct node in 
+LinkedList and return associated value object for that key in Java HashMap.
+Some good developer point out here that using immutable, final object with proper equals() and hashcode() implementation would act as perfect Java HashMap keys 
+and improve the performance of Java HashMap  by reducing collision. Immutability also allows caching their hashcode of different keys which makes overall 
+retrieval process very fast and suggest that String and various wrapper classes e.g. Integer very good keys in Java HashMap.
+
+Q.What happens On HashMap in Java if the size of the HashMap  exceeds a given threshold defined by load factor ?". 
+If the size of the Map exceeds a given threshold defined by load-factor e.g. if the load factor is .75 it will act to re-size the map once it filled 75%.
+Similar to other collection classes like ArrayList,  Java HashMap re-size itself by creating a new bucket array of size twice of the previous size of HashMap
+and then start putting every old element into that new bucket array. This process is called rehashing because it also applies the hash function to find new 
+bucket location. 
+
+Q.do you see any problem with resizing of HashMap  in Java" , you might not be able to pick the context and then he will try to give you hint 
+about multiple thread accessing the Java HashMap and potentially looking for race condition on HashMap  in Java. 
+Ans.Yes there is potential race condition exists while resizing HashMap in Java, if two thread at the same time found that now HashMap needs resizing and 
+they both try to resizing. on the process of resizing of HashMap in Java, the element in the bucket which is stored in linked list get reversed in order 
+during their migration to new bucket because Java HashMap  doesn't append the new element at tail instead it append new element at the head to avoid tail 
+traversing. If race condition happens then you will end up with an infinite loop.
+Just because of above reason we do not use HashMap in multi-threaded environment.
+
+Insertion order is not preserved in HashMap. 
+We can use Linked HashMap for preserving order.
+If we want sorted HashMap we should use Tree Map.
+
+
+
+Concurrenthashmap or synchronized map 
