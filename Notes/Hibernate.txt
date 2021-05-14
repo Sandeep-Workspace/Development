@@ -132,6 +132,12 @@ Use information from the Instructor class @JoinColumn.
 To help find associated instructor.
 
 
+Real World Project Requirement
+================================
+Delete instructor but do not delete course
+delete course but do not delete instructor
+
+Simply means: do not apply cascading delete
 
 
 
