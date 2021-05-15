@@ -1,1 +1,56 @@
-<h1>User Component works!</h1>
+<h1>For loop Object Traversing</h1>
+
+<table border='1'>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let item of objectArray">
+        <td>{{item.name}}</td>
+        <td>{{item.age}}</td>
+    </tr>
+
+</table>
+
+
+<!--
+<h3 *ngFor="let item of objectArray">
+    Name:{{item.name}}
+    Age:{{item.age}}
+</h3>
+
+
+For loop basic example 
+<h3 *ngFor="let item of dataArray">
+    {{item}}
+</h3>
+
+<h1>Switch Case Tutorial</h1>
+<div [ngSwitch]="color">
+    <h2 style="color: red;" *ngSwitchCase="'red'"> Red Color Block</h2>
+    <h2 style="color: yellow;" *ngSwitchCase="'yellow'"> yellow Color Block</h2>
+    <h2 style="color: green;" *ngSwitchCase="'green'"> green Color Block</h2>
+    <h2 style="color: violet;" *ngSwitchCase="'violet'"> violet Color Block</h2>
+    <h2 style="color: grey;" *ngSwitchCase="'grey'"> grey Color Block</h2>
+</div>
+
+<h1 *ngIf="show else elseBlock">
+    Ng If Block
+</h1>
+
+<ng-template #elseBlock>
+    <h1>Ng else block</h1>
+</ng-template>
+
+<ng-template [ngIf] = "show1 =='Saffron'">
+    <h1>Color of Sacrifice</h1>
+</ng-template>
+
+<ng-template [ngIf] = "show1 =='White'">
+    <h1>Color of Peace</h1>
+</ng-template>
+
+<ng-template [ngIf] = "show1 =='Green'">
+    <h1>Color of Greenery and Agriculture</h1>
+</ng-template>
+-->

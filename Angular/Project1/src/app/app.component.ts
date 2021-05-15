@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Practice Project';
-  show =false
+  
   /*
   date ='14 May';
   propertyBinding='field';
