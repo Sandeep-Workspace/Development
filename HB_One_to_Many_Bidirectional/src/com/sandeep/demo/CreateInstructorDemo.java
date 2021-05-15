@@ -23,38 +23,38 @@ public class CreateInstructorDemo {
 
 		//create session
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		try {
-		/*
+			/*
 			//create the object
 			Instructor tempInstructor = new Instructor("Sandeep","Chouhan","chouhan.sandeep003@gmail.com");
-			
+
 			InstructorDetail tempInstructorDetail = new InstructorDetail("www.youtube.cpm/luv2code","luv2code");
-		
+
 			Instructor tempInstructor = new Instructor("Mayank","Chouhan","mayankchouhan@gmail.com");
-			
+
 			InstructorDetail tempInstructorDetail = new InstructorDetail("www.youtube.com/luv2help","luv2help");
-			
+
 			//associate the object
 			tempInstructor.setInstructorDetail(tempInstructorDetail);
-		 */
+			 */
 			int id =5;
 			// Course object created to add and associate with instructor
 			Course tempCourse1 = new Course("Java Complete Master Class");
 			Course tempCourse2 = new Course("Spring Complete Master Class");
-			
+
 			//begin transaction
 			session.beginTransaction();	
-			
+
 			Instructor tempInstructor = session.get(Instructor.class,id);
-			
-			
+
+
 			tempInstructor.add(tempCourse1);
 			tempInstructor.add(tempCourse2);
-			
+
 			session.save(tempCourse1);
 			session.save(tempCourse2);
-			
+
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

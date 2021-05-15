@@ -140,6 +140,51 @@ delete course but do not delete instructor
 Simply means: do not apply cascading delete
 
 
+@OneToMany annotation provide cascade type with it.
+@JoinColumn this annotation is udes to provide name of column with which we are joining(foreign key). It is used in class 
+where we want to create this key
+
+mappedBy = use on target  field where we want to join. use name in mapped by which is provided in source class.
+
+@OneToMany annotation provide cascade type with it.
+
+
+Eager Loading
+==============
+It will load all dependent entities.
+Load everything at once.
+
+
+Best Practice
+==============
+Only load data when absolutely needed. Prefer Lazy Loading instead of Eager Loading.
+
+Lazy Loading
+===============
+It will load main entity first.
+Load dependent entities on demand.
+
+FetchType
+==========
+When you define Mapping Relationship
+You can specify the fetch type: EAGER or LAZY.
+
+@OneToMany(fetch = FetchType.LAZY, mappedBy ="instructor")
+
+More about Lazy Loading
+When you lazy load, the data is only retrieved on demand.
+However, this requires an open Hibernate session.
+need an connection to database to retrieve data.
+
+If the Hibernate session is closed. And we attempt to retrieve data. Hibernate will throw an exception.
+
+Retrieve Lazy data using:
+=========================
+Option 1:session.get() and call appropriate getter methods.
+Option 2:Hibernate query with HQL.
+
+
+
 
 
 

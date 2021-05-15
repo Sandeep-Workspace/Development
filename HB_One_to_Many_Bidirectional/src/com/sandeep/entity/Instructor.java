@@ -18,21 +18,21 @@ import javax.persistence.Table;
 @Table(name="instructor")
 public class Instructor {
 
-	
+
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
-	
+
 	@Column(name="first_Name")
 	private String firstName;
-	
+
 	@Column(name="last_Name")
 	private String lastName;
-	
+
 	@Column(name="email")
 	private String email;
-	
+
 	//set up mapping to instructordetail entity
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="instructor_detail_id")
@@ -40,9 +40,8 @@ public class Instructor {
 
 	@OneToMany(mappedBy="instructor",cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
 	private List<Course> courses;
-	
+
 	public Instructor() {
-			// TODO Auto-generated constructor stub
 	}
 
 	public Instructor(String firstName, String lastName, String email) {
@@ -88,7 +87,7 @@ public class Instructor {
 		this.instructorDetail = instructorDetail;
 	}
 
-	
+
 	public List<Course> getCourses() {
 		return courses;
 	}
@@ -103,10 +102,10 @@ public class Instructor {
 			courses =new ArrayList<Course>();
 		}
 		courses.add(tempCourse);
-		
+
 		tempCourse.setInstructor(this);
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
@@ -162,5 +161,5 @@ public class Instructor {
 		return true;
 	}
 
-	
+
 }

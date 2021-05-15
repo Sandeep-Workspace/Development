@@ -18,23 +18,23 @@ public class Course {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Id")
 	private int id;
-	
+
 	@Column(name="title")
 	private String title;
-	
+
 	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
 	@JoinColumn(name="instructor_id")
 	private Instructor instructor;
 
 	public Course() {
-		
+
 	}
-	
+
 	public Course(String title)
 	{
 		this.title = title;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -63,5 +63,5 @@ public class Course {
 	public String toString() {
 		return "Course [id=" + id + ", title=" + title + "]";
 	}
-	
+
 }

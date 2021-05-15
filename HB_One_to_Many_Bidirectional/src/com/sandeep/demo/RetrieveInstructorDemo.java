@@ -23,20 +23,20 @@ public class RetrieveInstructorDemo {
 
 		//create session
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		try {
 
 			int id =5;
-	
+
 			//begin transaction
 			session.beginTransaction();	
-			
+
 			Instructor tempInstructor = session.get(Instructor.class,id);
 
 			System.out.println("Instructor Details:"
-			+"\n Instructor Id:"+tempInstructor.getId()+"\n Instructor Name:"+tempInstructor.getFirstName());
+					+"\n Instructor Id:"+tempInstructor.getId()+"\n Instructor Name:"+tempInstructor.getFirstName());
 			System.out.println("Course Details:"+tempInstructor.getCourses());
-			
+
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

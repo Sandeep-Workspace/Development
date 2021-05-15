@@ -26,7 +26,7 @@ public class InstructorDetail {
 
 	@Column(name="hobby")
 	private String hobby;
-	
+
 	@OneToOne(mappedBy = "instructorDetail", cascade = {CascadeType.MERGE,CascadeType.REFRESH,CascadeType.DETACH,CascadeType.PERSIST})
 	private Instructor instructor;
 
@@ -34,7 +34,7 @@ public class InstructorDetail {
 	public InstructorDetail() {
 		System.out.println("No-Arg");
 	}
-	
+
 	public InstructorDetail(String youtubeChannel, String hobby) {
 		super();
 		this.youtubeChannel = youtubeChannel;
@@ -49,7 +49,7 @@ public class InstructorDetail {
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -113,5 +113,5 @@ public class InstructorDetail {
 		return true;
 	}
 
-	
+
 }

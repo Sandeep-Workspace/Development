@@ -23,18 +23,18 @@ public class DeleteInstructorDemo {
 
 		//create session
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		try {
-		
+
 			int id =13;
-			
+
 			//begin transaction
 			session.beginTransaction();	
-			
+
 			Course tempCourse  = session.get(Course.class,id);
-			
+
 			session.delete(tempCourse);
-			
+
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
