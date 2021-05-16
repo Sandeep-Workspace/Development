@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<h1 [style.backgroundColor]="'skyblue'">Simple Form in Angular</h1>
+
+<h2 [style.color]="color"> Testing Dynamic CSS Binding</h2>
+
+<form #simpleForm="ngForm" (ngSubmit)="getUserValues(simpleForm.value)">
+  <br><br>
+  <input type="text" ngModel name="username" placeholder="enter name" [style.color]="'red'"/>
+  <br><br>
+  <input type="text" ngModel name="age" placeholder="enter age"/>
+  <br><br>
+  <input type="text" ngModel name="address" placeholder="enter address"/>
+  <br><br>
+  <input type="text" ngModel name="email" placeholder="enter email"/>
+  <br><br>
+  <h1 [style.color]="err?'red':'green'">Dynamic CSS for Error Conditional Style</h1>
+  <br><br>
+  <Button (click)="updateColor()">Get User Values</Button>
+</form>
+
+<app-footer></app-footer>
