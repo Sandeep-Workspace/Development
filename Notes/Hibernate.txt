@@ -184,6 +184,19 @@ Option 1:session.get() and call appropriate getter methods.
 Option 2:Hibernate query with HQL.
 
 
+MamyToMany
+==========
+JoinTable: A table that provides a mapping between two variables. It has foreign keys for each table
+to define the mapping relationship.
+
+@JoinTable: specifies Hibernate
+Look at the course_id column in course_student table 
+or other side look at student_id column on course_student table
+Use this information to find relationship between course and students.
+
+More on Inverse
+===============
+In this context, we are defining the relationship in the course class. 
 
 
 
