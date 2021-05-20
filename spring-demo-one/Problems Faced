@@ -1,4 +1,0 @@
-If Id of both beans is same in ApplicationContext.xml file it will give exception:
-"Exception: Configuration problem: Bean name 'myCoach' is already used in this <beans> element
-Offending resource: class path resource [applicationContext.xml]"
-

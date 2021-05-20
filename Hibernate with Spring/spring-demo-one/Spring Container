@@ -1,0 +1,5 @@
+Spring Container generally known as Application Context.
+Primary function
+=================================================
+1)Create and Manage Objects (Inversion of Control)
+2)Inject Object's dependencies (Dependency Injection)

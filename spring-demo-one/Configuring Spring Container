@@ -1,5 +1,0 @@
-Three Ways:
-===================================================================
-1) XML Configuration file (legacy, but most legacy apps still use this)
-2) Java Annotation's (Modern)
-3) Java Source Code (Modern)

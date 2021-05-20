@@ -1,0 +1,190 @@
+CRM: Customer Relationship Management
+======================================
+
+Configuration of Sprinng + Hibernate
+====================================
+Define database datasource/connection pool
+Setup Hibernate session Factory
+Setup Hibernate Transaction Manager
+Enable configuration of transactional annotations
+
+Customer Data Access Object
+===========================
+Responsible for interfacing with database.
+This is a common design pattern. Data Access Object(DAO)
+
+Controller -> DAO -> Hibernate -> Database
+
+For Hibernate our DAO needs a SessionFactory.
+
+DAO -> Session Factory ->Data Source(It defines database connection info) -> DB
+
+
+In DAO we will use 
+@Autowired
+private SessionFactory sessionFactory;
+
+spring will read configuration defined and inject dependency into this reference.
+
+Spring @Transactional
+======================
+Spring provides @Transactional annotation.
+Atuomatically begin and end transaction for your hibernate code.
+No need for you to explicitly do this in your code.
+This spring magic happens behind the scenes.
+
+After @Transaction you dont have to write below code
+session.beginTransaction();
+session.getTransaction().commit();
+
+Specialized annotation for DAO
+===============================
+@Component: Used on Java beans 
+@Controller: Used on Controller in Spring MVC
+@Repository: Used on DAO
+
+@Repository 
+applies to DAO implementation
+Spring will automatically register the DAO implementation thanks to component scanning.
+Spring also provided translation of any JDBC related exceptions.
+
+Reference CSS in your JSP
+===========================
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+
+above for href we are using JSP expression language to specify app name
+href="${pageContext.request.contextPath}"
+
+resources folder should be in WebContent folder.resources is css directory css is folder style.css id stylesheet
+
+index.jsp file should be in WebContent. 
+=================================================================
+
+New Annotations
+================
+@GetMapping
+@PostMapping
+
+Most commonly used Http methods
+=================================
+GET: Request data from given resource
+POST: submits data to given resource 
+others
+
+Sending Data with GET method
+=============================
+<form action="processForm" method="GET">
+</form>
+
+Form data is added to end of URL as name/value pairs.
+theURL?field1=value1&field2=value2
+
+Handling Form Submission
+=========================
+@RequestMapping("/processForm")
+public String processForm(){
+}
+
+This mapping handles all HTTP methods.
+
+Constraint the Request Mapping-GET
+===================================
+@RequestMapping(path="/processForm", method=RequestMethod.GET)
+public String processForm(){
+}
+
+This mapping only handles Get method.
+Any other HttpRequest method will get rejected.
+
+
+New Annotation Short Cut
+========================
+@GetMapping(path="processForm")
+public String processForm(){
+}
+
+New Annotation @GetMapping only handles GET method.Any other HttpRequest method will get rejected.
+========================================================================================================
+
+Sending data with POST method.
+==============================
+<form action="processForm" method="POST">
+</form>
+
+Form data is passed in the body of HTTP request message.
+
+HTML    ----> request (headers +body(form data)) ----------> Spring MVC Controller
+Form 
+
+Constraint the Request Mapping-POST
+===================================
+@RequestMapping(path="/processForm", method=RequestMethod.POST)
+public String processForm(){
+}
+
+This mapping only handles POST method.
+Any other HttpRequest method will get rejected.
+
+New Annotation Short Cut
+========================
+@PostMapping(path="processForm")
+public String processForm(){
+}
+
+New Annotation @GetMapping only handles POST method.Any other HttpRequest method will get rejected.
+=========================================================================================================
+
+Which one to use?
+
+GET
+===
+Good for debugging
+Bookmark or email URL
+Limitations on Data length
+
+POST
+====
+Can't Bookmark or email URL
+No Limitations on Data length
+Can also send Binary Data
+===========================================================================================================
+
+Service Layer
+==============
+Service Facade Design Pattern.
+Imtermediate Layer for custom business logic.
+Integrate data from multiple sources(DAO/repositories)
+
+Specialized annotation for services
+====================================
+Spring provides @Service annotation.
+@Component (Below three belongs to this one)
+@Controller
+@Repository
+@Service
+
+@Service applied to service implementation
+Spring will automatically register the Service implementation,thanks to component scanning.
+
+Define Service Interface
+Define Service Implementation
+Inject Customer DAO
+
+public interface customerService{
+	public List<Customer> getCustomers();
+}
+
+@Service
+public class CustomerServiceImpl implements CustomeService{
+	
+	@Autowired
+	private CustomerDAO customerDAO;
+	
+	@Transactional
+	public List<Customer> getCustomers(){
+	}
+}
+
+Move @Transactional to Service Layer
+
+org.hibernate.HibernateException: Could not obtain transaction-synchronized Session for current thread

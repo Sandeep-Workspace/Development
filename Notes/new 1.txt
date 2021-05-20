@@ -1,0 +1,9 @@
+CRM: Customer Relationship Management
+======================================
+
+Configuration of Sprinng + Hibernate
+====================================
+Define database datasource/connection pool
+Setup Hibernate session Factory
+Setup Hibernate Transaction Manager
+Enable configuration of transactional annotations

@@ -1,0 +1,25 @@
+Scopes refer to lifecycle of bean.
+Default Scope: Singleton
+
+Singleton : Spring container creates only one instance of the bean, by default. It is cached in memory. 
+All requests  for the bean will return a shared  reference to the bean. 
+
+Bean Lifecycle
+========================
+Container Started -> Bean Instantiated -> Dependencies injected -> Internal Spring Processing 
+-> Your Custom Init Method -> Bean is ready for use  -> Container is shut down -> Your custom destroy method.
+
+Bean Lifecycle Method Hooks
+
+You can add custom code during bean initialization
+Calling custom business logic methods
+setting up handles to resources(db, sockets, file etc)
+
+You can add custom code during bean destruction
+Calling custom business logic methods
+Clean up handles to resources(db, sockets, file etc)
+
+Steps
+Define your init and destroy method 
+Configure the method names in spring config file.
+

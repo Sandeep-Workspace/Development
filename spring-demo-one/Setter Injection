@@ -1,3 +1,0 @@
-Spring Development process
-1) Create setter methods in your class for injection.
-2) Configure the dependency injection in spring config file. 
